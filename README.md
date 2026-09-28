@@ -1,3 +1,7 @@
+![prod deploy](https://github.com/DreamCatcher13/skills-deploy-to-azure/actions/workflows/deploy-prod.yml/badge.svg)
+![stage deploy](https://github.com/DreamCatcher13/skills-deploy-to-azure/actions/workflows/deploy-staging.yml/badge.svg)
+![destroy prod infra](https://github.com/DreamCatcher13/skills-deploy-to-azure/actions/workflows/spinup-destroy.yml/badge.svg)
+
 <header>
 
 <!--
