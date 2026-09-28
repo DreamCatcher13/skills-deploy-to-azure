@@ -1,0 +1,28 @@
+name: Learning GitHub Script
+on:
+  issues:
+    types: [opened]
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Add a comment to an issue
+      uses: actions/github-script@v9
+      with:
+        script: |
+            github.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: "🎉 You've created this issue comment using GitHub Script!!!"
+            })
+    - name: Add issue to project board
+      if: contains(github.event.issue.labels.*.name, 'bug')
+      uses: actions/github-script@v9
+      with:
+        script: |
+            github.projects.createCard({
+            column_id: {{columnID}},
+            content_id: context.payload.issue.id,
+            content_type: "Issue"
+            });
